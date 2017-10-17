@@ -1,0 +1,45 @@
+This is a complete register login form, I prepare this by using php,database, css, html. A simple form but so mouch useful and easy to code.
+
+first you have to connect database to your php file you can get idea from config.php.
+
+I created a database name project and my table name was project1.
+
+
+
+
+connection process:
+
+$connection = mysqli_connect('localhost','root','','myproject');
+
+
+data retrieve process:
+_____________________________
+
+$query = mysqli_query($connection,"SELECT * from project1");
+$row = mysqli_fetch_object($query);
+
+echo $row-> first_name;
+echo $row-> password;
+
+alternate way to retrieve:
+
+$row = mysqli_fetch_assoc($query);
+echo $row['first_name'];
+
+getting/showing data according to id:
+________________________________
+
+<?php
+
+if(isset($_POST['registery'])) {
+	$id = $_POST['idd'];
+
+	$query = mysqli_query($connection,"SELECT * from project1 where id = '$id'");
+
+	$row = mysqli_fetch_object($query);
+ 	echo $row->first_name;
+ 	echo $row->last_name;
+ 	echo $row->email_address;
+ 	echo $row->password;
+
+ }
